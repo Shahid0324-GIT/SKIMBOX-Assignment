@@ -3,9 +3,18 @@ import "./App.css";
 
 const App = () => {
   const [curr, setCurr] = useState("double");
+  const [total, setTotal] = useState(360);
 
   const onChangeInput = (e) => {
     setCurr(e.target.value);
+
+    if (e.target.value === "single") {
+      setTotal(195);
+    } else if (e.target.value === "double") {
+      setTotal(360);
+    } else {
+      setTotal(560);
+    }
   };
 
   const singleActive = curr === "single" ? "active" : null;
@@ -134,7 +143,7 @@ const App = () => {
         <div className="shipping">
           <p className="para">free 2 day shipping</p>
           <p>
-            total : <span className="total"> DKK 360.0</span>
+            total : <span className="total"> {total}</span>
           </p>
         </div>
         <div className="button-container">
